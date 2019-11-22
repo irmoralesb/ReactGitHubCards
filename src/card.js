@@ -4,7 +4,7 @@ class Card extends React.Component {
     render(){
         return(
             <div className="github-profile">
-                <img src={this.props.profile.avatar_url} />
+                <img src={this.props.profile.avatar_url} alt="" />
                 <div className="info">
                     <div className="name">{this.props.profile.name}</div>
                     <div className="company">{this.props.profile.company}</div>

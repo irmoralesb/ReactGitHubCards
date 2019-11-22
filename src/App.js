@@ -1,23 +1,27 @@
 import React from 'react';
-import Card from './card';
 import CardList from './cardList';
 import Form from './form'
-//api.github.com/users/gaearon
 
 class App extends React.Component{
 
-constructor(props){
-  super(props);
-  this.state= {
-    profiles: props.profileList,
-    title: props.title
-  };
-}
+  constructor(props){
+    super(props);
+    this.state= {
+      profiles: props.profileList,
+      title: props.title
+    };
+  }
+
+  addNewProfile = (profileData) => {
+    this.setState(prevState => ({
+      profiles: [...prevState.profiles,profileData]
+    }));
+  }
 
   render(){
   return <div>
     <div className="header">{this.state.title}</div>
-    <Form />
+    <Form onSubmit={this.addNewProfile}/>
     <CardList profileList={this.state.profiles} />
   </div>
   }
